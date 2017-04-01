@@ -1,0 +1,181 @@
+html, body{
+	height: 100%;
+}
+	
+body{
+    margin: 0px;
+    padding: 0px;
+    background: #1f7522;
+    line-height: 1.5em;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12pt;
+    font-weight: 300;
+    color: #000000;
+}
+
+h1, h2, h3{
+    margin: 0;
+    padding: 0;
+}
+
+p, ol, ul{
+    margin-top: 0;
+}
+
+ol, ul{
+    padding: 0;
+    list-style: none;
+}
+
+p{
+    line-height: 180%;
+}
+
+a .opMenu{
+    font-size: 14pt;
+    color: #383326;
+}
+
+/*	a:hover	{
+		text-decoration: none;
+	}
+*/
+.container {
+    overflow: hidden;
+    margin: 0em auto;
+    width: 1000px;
+}
+	
+
+/*********************************************************************************/
+/* Title Styles                                                                   */
+/*********************************************************************************/
+
+.title {
+    padding: 0em 0em;
+    margin-bottom: 3em;
+}
+
+.title h2 {
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2em;
+    color: #383326;
+}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+#header {
+    position: relative;
+    padding-top: 3em;
+    padding-right: 0em;
+    padding-right: 0em;
+    padding-bottom: 1em;
+}
+
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+#logo {
+    text-decoration: none;
+    color: rgba(255,255,255,0.9);
+    float: left;
+}
+
+/*********************************************************************************/
+/* Menu                                                                          */
+/*********************************************************************************/
+
+#menu {
+    position: relative;
+    top: 0em;
+    float: right;
+}
+
+#menu ul {
+    display: inline-block;
+}
+
+#menu li {
+    display: block;
+    float: left;
+    text-align: center;
+}
+	
+#menu li a, #menu li span {
+    padding: 0.7em 1.5em;
+    text-decoration: none;
+    color: rgba(255,255,255,0.6);
+}
+	
+#menu li:hover a, #menu li.active a, #menu li.active span {
+    background: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    color: rgba(255,255,255,0.8);
+}
+
+/*********************************************************************************/
+/* Bloco                                                                      */
+/*********************************************************************************/
+
+#bloco1 {
+    width: 100%;
+    height: 30px;
+}
+
+#bloco2 {
+    height: 30px;
+}
+
+#btLogin{
+    width: 30%;
+    float: left;
+    padding: 1em 1em;
+}
+
+#pesquisar{
+    left: 6em;
+    width: 100%;
+}
+
+input {
+    font-family: Arial;
+    font-size: 16pt;
+}
+	
+a .login {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14pt;
+    color: #1111AA;		
+}
+	
+/*********************************************************************************/
+/* Page                                                                          */
+/*********************************************************************************/
+
+#page {
+    overflow: hidden;
+    padding: 5em 0em;
+    background: #D7D4C3;
+}
+
+/*********************************************************************************/
+/* Copyright                                                                     */
+/*********************************************************************************/
+
+#copyright	{
+    overflow: hidden;
+    padding: 2em 0em;
+}
+	
+#copyright p {
+    letter-spacing: 0.20em;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.80em;
+    color: rgba(255,255,255,0.3);
+}
