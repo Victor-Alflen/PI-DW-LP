@@ -8,11 +8,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Loja sem nome</title>
         <%@include file="imports.jsp" %>
     </head>
     <body>
-        <h1>Hello World!</h1>
-    </body>
+        <div id="header" class="container">
+            <%@include file="cabecalho.jsp" %>
+               
+        </div>
 </html>
