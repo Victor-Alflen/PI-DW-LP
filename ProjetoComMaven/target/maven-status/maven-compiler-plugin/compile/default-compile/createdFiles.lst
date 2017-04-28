@@ -1,1 +1,7 @@
+DAOs\DAOGenerico.class
 ServletAnotation.class
+DAOs\DAOCliente.class
+Servlets\BancoDeDados.class
+Servlets\cadastreMe.class
+Entidades\Cliente_.class
+Entidades\Cliente.class

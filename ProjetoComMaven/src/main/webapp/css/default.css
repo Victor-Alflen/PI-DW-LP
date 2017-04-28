@@ -5,7 +5,7 @@ html, body{
 body{
     margin: 0px;
     padding: 0px;
-    background: #1f7522;
+    background: #1F7522;
     line-height: 1.5em;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 12pt;
@@ -17,33 +17,49 @@ h1, h2, h3{
     padding: 0;
 }
 
-ol, ul{
+ul{
     margin-top: 0;
     padding: 0;
     list-style: none;
 }
 
-p{
-    margin-top: 0;
-    line-height: 180%;
+/* Barra de pesquisa*/
+
+#divBusca{
+  background-color:#E0EEEE;
+  border:solid 2px #5F9EA0;
+  border-radius:10px;
+  width: 395px;
+  height:32px;
 }
 
-a .opMenu{
-    font-size: 14pt;
-    color: #383326;
+#txtBusca{
+	font-size: 12pt;
+  float:left;
+  background-color:transparent;
+  padding-left:5px; 
+  font-size:18px;
+  border:none;
+  height:32px;
+  width:315px;
 }
 
-/*	a:hover	{
-		text-decoration: none;
-	}
-*/
+#btnBusca{
+  border:none;
+  float:left;
+  height:32px;
+  border-radius:0 7px 7px 0;
+  width:74px;
+  font-weight:bold;
+  background:#5F9EA0;
+}
+
 .container {
     overflow: hidden;
     margin: 0em auto;
     width: 1000px;
 }
 	
-
 /*********************************************************************************/
 /* Title Styles                                                                   */
 /*********************************************************************************/
@@ -67,10 +83,7 @@ a .opMenu{
 
 #header {
     position: relative;
-    padding-top: 3em;
-    padding-right: 0em;
-    padding-right: 0em;
-    padding-bottom: 1em;
+    padding: 20px 0px 10px 0px;
 }
 
 /*********************************************************************************/
@@ -87,9 +100,14 @@ a .opMenu{
 /* Menu                                                                          */
 /*********************************************************************************/
 
+a .opMenu{
+    font-size: 14pt;
+    color: #383326;
+}
+
 #menu {
     position: relative;
-    top: 0em;
+    top: 0px;
     float: right;
 }
 
@@ -104,7 +122,7 @@ a .opMenu{
 }
 	
 #menu li a, #menu li span {
-    padding: 0.7em 1.5em;
+    padding: 10px 20px;
     text-decoration: none;
     color: rgba(255,255,255,0.6);
 }
@@ -115,28 +133,30 @@ a .opMenu{
     color: rgba(255,255,255,0.8);
 }
 
+/* Cabeçalho */
+
+#cabecalho {
+	width: 100%;
+	height: 40px; 
+}
+
+
 /*********************************************************************************/
 /* Bloco                                                                      */
 /*********************************************************************************/
 
-#bloco1 {
-    width: 100%;
-    height: 30px;
-}
-
 #bloco2 {
-    height: 30px;
+	width: 100%;
+    height: 40px;
 }
 
-#btLogin{
-    width: 30%;
-    float: left;
-    padding: 1em 1em;
+#bloco3 {
+
 }
 
-#pesquisar{
-    left: 6em;
-    width: 100%;
+.pesquisar{
+	border-radius: 10px;
+	border:1px solid #AAAAAA;
 }
 
 input {
@@ -155,9 +175,9 @@ a .login {
 /*********************************************************************************/
 
 #page {
-    overflow: hidden;
-    padding: 5em 0em;
-    background: #F0F0F0;
+    /*overflow: hidden;*/
+    padding: 40px;
+    background: #FCFCFC;
 }
 
 /*********************************************************************************/
@@ -166,13 +186,13 @@ a .login {
 
 #copyright	{
     overflow: hidden;
-    padding: 2em 0em;
+    padding: 35px 0px;
 }
 	
 #copyright p {
-    letter-spacing: 0.20em;
+    letter-spacing: 1pt;
     text-align: center;
     text-transform: uppercase;
-    font-size: 0.80em;
+    font-size: 12pt;
     color: rgba(255,255,255,0.3);
 }
