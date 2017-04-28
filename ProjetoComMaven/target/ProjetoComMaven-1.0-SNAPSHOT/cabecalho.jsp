@@ -13,7 +13,7 @@
                 <li class="active"><a href="jsp/cadastro.jsp" title="">Minha Conta</a></li>
                 <li><a class="opMenu" href="#" title="">Página Inicial</a></li>
                 <li><a class="opMenu" href="#" title="">Quem Somos</a></li>
-                <li><a class="opMenu" href="#" title="">Informações</a></li>
+                <li><a class="opMenu" href="recuperarClientes" title="">Informações</a></li>
                 <li><a class="opMenu" href="#" title="">Contato</a></li>
             </ul>
         </div>

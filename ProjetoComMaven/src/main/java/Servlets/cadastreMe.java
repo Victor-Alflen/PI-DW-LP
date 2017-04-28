@@ -34,13 +34,14 @@ public class cadastreMe extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        DAOCliente controle = new DAOCliente();
+        
         
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         
+        DAOCliente controle = new DAOCliente();
         Cliente cliente = new Cliente();
         
         cliente = new Cliente(controle.autoIdCliente());

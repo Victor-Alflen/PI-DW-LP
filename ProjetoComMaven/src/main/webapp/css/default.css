@@ -1,7 +1,7 @@
 html, body{
     height: 100%;
 }
-	
+
 body{
     margin: 0px;
     padding: 0px;
@@ -26,32 +26,32 @@ ul{
 /* Barra de pesquisa*/
 
 #divBusca{
-  background-color:#E0EEEE;
-  border:solid 2px #5F9EA0;
-  border-radius:10px;
-  width: 395px;
-  height:32px;
+    background-color:#E0EEEE;
+    border:solid 2px #5F9EA0;
+    border-radius:10px;
+    width: 395px;
+    height:32px;
 }
 
 #txtBusca{
-	font-size: 12pt;
-  float:left;
-  background-color:transparent;
-  padding-left:5px; 
-  font-size:18px;
-  border:none;
-  height:32px;
-  width:315px;
+    font-size: 12pt;
+    float:left;
+    background-color:transparent;
+    padding-left:5px; 
+    font-size:18px;
+    border:none;
+    height:32px;
+    width:315px;
 }
 
 #btnBusca{
-  border:none;
-  float:left;
-  height:32px;
-  border-radius:0 7px 7px 0;
-  width:74px;
-  font-weight:bold;
-  background:#5F9EA0;
+    border:none;
+    float:left;
+    height:32px;
+    border-radius:0 7px 7px 0;
+    width:74px;
+    font-weight:bold;
+    background:#5F9EA0;
 }
 
 .container {
@@ -59,7 +59,7 @@ ul{
     margin: 0em auto;
     width: 1000px;
 }
-	
+
 /*********************************************************************************/
 /* Title Styles                                                                   */
 /*********************************************************************************/
@@ -120,13 +120,13 @@ a .opMenu{
     float: left;
     text-align: center;
 }
-	
+
 #menu li a, #menu li span {
     padding: 10px 20px;
     text-decoration: none;
     color: rgba(255,255,255,0.6);
 }
-	
+
 #menu li:hover a, #menu li.active a, #menu li.active span {
     background: rgba(0,0,0,0.5);
     border-radius: 20px;
@@ -136,8 +136,8 @@ a .opMenu{
 /* Cabeçalho */
 
 #cabecalho {
-	width: 100%;
-	height: 40px; 
+    width: 100%;
+    height: 40px; 
 }
 
 
@@ -146,7 +146,7 @@ a .opMenu{
 /*********************************************************************************/
 
 #bloco2 {
-	width: 100%;
+    width: 100%;
     height: 40px;
 }
 
@@ -155,21 +155,21 @@ a .opMenu{
 }
 
 .pesquisar{
-	border-radius: 10px;
-	border:1px solid #AAAAAA;
+    border-radius: 10px;
+    border:1px solid #AAAAAA;
 }
 
 input {
     font-family: Arial;
     font-size: 16pt;
 }
-	
+
 a .login {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 14pt;
     color: #1111AA;		
 }
-	
+
 /*********************************************************************************/
 /* Page                                                                          */
 /*********************************************************************************/
@@ -186,9 +186,9 @@ a .login {
 
 #copyright	{
     overflow: hidden;
-    padding: 35px 0px;
+    padding: 20px 0px;
 }
-	
+
 #copyright p {
     letter-spacing: 1pt;
     text-align: center;

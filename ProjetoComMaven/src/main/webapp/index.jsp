@@ -15,7 +15,7 @@
         <%@include file="cabecalho.jsp" %>
         <div id="page">
             <p><a href="#"> Algo aqui </a></p>
-            <p> Algo aqui </p>
+            <p> <button>Algo aqui</button> </p>
             <p> Algo aqui </p>
             <p> Algo aqui </p>
             <p> Algo aqui </p>

@@ -4,9 +4,17 @@
         <servlet-name>cadastreMe</servlet-name>
         <servlet-class>Servlets.cadastreMe</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>recuperarClientes</servlet-name>
+        <servlet-class>Servlets.recuperarClientes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastreMe</servlet-name>
         <url-pattern>/cadastreMe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>recuperarClientes</servlet-name>
+        <url-pattern>/recuperarClientes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
