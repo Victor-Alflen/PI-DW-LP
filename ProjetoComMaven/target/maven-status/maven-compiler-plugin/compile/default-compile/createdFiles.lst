@@ -1,7 +1,9 @@
 DAOs\DAOGenerico.class
-ServletAnotation.class
+Servlets\recuperarClientes.class
 DAOs\DAOCliente.class
-Servlets\BancoDeDados.class
+Exemplo\Endereco.class
 Servlets\cadastreMe.class
+Servlets\expressionLanguage.class
 Entidades\Cliente_.class
+Exemplo\Pessoa.class
 Entidades\Cliente.class
