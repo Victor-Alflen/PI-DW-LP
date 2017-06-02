@@ -1,6 +1,6 @@
 <%-- 
-    Document   : novoindex
-    Created on : 21/05/2017, 18:00:07
+    Document   : adminPage
+    Created on : 02/06/2017, 09:38:34
     Author     : Victor
 --%>
 
@@ -8,11 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="jsp/imports.jsp" %>
+        <%@include file="imports.jsp" %>
         <title>Loja sem nome</title>
     </head>
     <body>
-        <%@include file="jsp/cabecalho.jsp" %>
+        <%@include file="cabecalho.jsp" %>
         <div class="row">
             <div class="col-md-2">
                 <div class="panel panel-default">
