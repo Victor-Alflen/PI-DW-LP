@@ -17,13 +17,13 @@
             <div class="col-md-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Inserir</h3>
+                        <h3 class="panel-title">Cadastrar</h3>
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
-                            <li role="presentation"><a href="jsp/insereCategoria.jsp">Insere Categorias</a></li>
-                            <li role="presentation"><a href="jsp/insereCliente.jsp">Insere Cliente</a></li>
-                            <li role="presentation"><a href="jsp/insereProduto.jsp">Insere Produtos</a></li>
+                            <li role="presentation"><a href="jsp/cadastraCategoria.jsp">Insere Categorias</a></li>
+                            <li role="presentation"><a href="jsp/cadastraCliente.jsp">Insere Cliente</a></li>
+                            <li role="presentation"><a href="jsp/cadastraProduto.jsp">Insere Produtos</a></li>
                         </ul>
                     </div>
                     <div class="panel panel-default">
@@ -43,5 +43,6 @@
                 </div>
             </div>
         </div>
+        <%@include file="rodape.jsp" %>
     </body>
 </html>

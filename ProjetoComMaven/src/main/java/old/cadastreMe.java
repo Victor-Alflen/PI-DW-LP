@@ -5,8 +5,8 @@
  */
 package old;
 
-import DAOs.DAOCliente;
-import Entidades.Cliente;
+import DAOs.DAOClientes;
+import Entidades.Clientes;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -41,10 +41,10 @@ public class cadastreMe extends HttpServlet {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         
-        DAOCliente controle = new DAOCliente();
-        Cliente cliente = new Cliente();
+        DAOClientes controle = new DAOClientes();
+        Clientes cliente = new Clientes();
         
-        cliente = new Cliente(controle.autoIdCliente());
+        cliente = new Clientes(controle.autoIdClientes());
         cliente.setNome(nome);
         cliente.setEmail(email);
         cliente.setLogin(login);

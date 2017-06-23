@@ -14,8 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Minha Conta <span class="sr-only">(current)</span></a></li>               
-                <li><a href="#">Página Inicial</a></li>
+                <li class="active"><a href="/ProjetoComMaven/index.jsp">Página Inicial <span class="sr-only">(current)</span></a></li>               
                 <li><a href="#">Quem somos</a></li>
                 <li><a href="#">Informações</a></li>
                 <li><a href="#">Contato</a></li>
@@ -28,6 +27,10 @@
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
 
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="/ProjetoComMaven/jsp/login.jsp">Minha Conta <span class="sr-only">(current)</span></a></li>               
+                <li><a href="/ProjetoComMaven/jsp/cadastraCliente.jsp">Cadastre-se</a></li>
+            </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

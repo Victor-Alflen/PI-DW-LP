@@ -5,8 +5,8 @@
  */
 package old;
 
-import DAOs.DAOCliente;
-import Entidades.Cliente;
+import DAOs.DAOClientes;
+import Entidades.Clientes;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -33,8 +33,8 @@ public class recuperarClientes extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        DAOCliente controle = new DAOCliente();
-        List<Cliente> clientes = controle.listInOrderId();
+        DAOClientes controle = new DAOClientes();
+        List<Clientes> clientes = controle.listInOrderId();
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -54,7 +54,7 @@ public class recuperarClientes extends HttpServlet {
             out.println("</tr>");
             
             
-            for (Cliente c : clientes){
+            for (Clientes c : clientes){
                 out.println("<tr>");
                 out.println("<td>" + c.getNome() + "</td>");
                 out.println("<td>" + c.getEmail()+ "</td>");

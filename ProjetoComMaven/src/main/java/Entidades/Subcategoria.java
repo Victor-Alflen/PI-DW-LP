@@ -6,18 +6,22 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,43 +32,47 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Subcategoria.findAll", query = "SELECT s FROM Subcategoria s")
-    , @NamedQuery(name = "Subcategoria.findById", query = "SELECT s FROM Subcategoria s WHERE s.id = :id")
+    , @NamedQuery(name = "Subcategoria.findById", query = "SELECT s FROM Subcategoria s WHERE s.subcategoriaPK.id = :id")
+    , @NamedQuery(name = "Subcategoria.findByCategoriaId", query = "SELECT s FROM Subcategoria s WHERE s.subcategoriaPK.categoriaId = :categoriaId")
     , @NamedQuery(name = "Subcategoria.findByNome", query = "SELECT s FROM Subcategoria s WHERE s.nome = :nome")})
 public class Subcategoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "id")
-    private Integer id;
+    @EmbeddedId
+    protected SubcategoriaPK subcategoriaPK;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "nome")
     private String nome;
-    @JoinColumn(name = "id_categoria", referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subcategoria")
+    private List<Produto> produtoList;
+    @JoinColumn(name = "categoria_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Categoria idCategoria;
+    private Categoria categoria;
 
     public Subcategoria() {
     }
 
-    public Subcategoria(Integer id) {
-        this.id = id;
+    public Subcategoria(SubcategoriaPK subcategoriaPK) {
+        this.subcategoriaPK = subcategoriaPK;
     }
 
-    public Subcategoria(Integer id, String nome) {
-        this.id = id;
+    public Subcategoria(SubcategoriaPK subcategoriaPK, String nome) {
+        this.subcategoriaPK = subcategoriaPK;
         this.nome = nome;
     }
 
-    public Integer getId() {
-        return id;
+    public Subcategoria(int id, int categoriaId) {
+        this.subcategoriaPK = new SubcategoriaPK(id, categoriaId);
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public SubcategoriaPK getSubcategoriaPK() {
+        return subcategoriaPK;
+    }
+
+    public void setSubcategoriaPK(SubcategoriaPK subcategoriaPK) {
+        this.subcategoriaPK = subcategoriaPK;
     }
 
     public String getNome() {
@@ -75,18 +83,27 @@ public class Subcategoria implements Serializable {
         this.nome = nome;
     }
 
-    public Categoria getIdCategoria() {
-        return idCategoria;
+    @XmlTransient
+    public List<Produto> getProdutoList() {
+        return produtoList;
     }
 
-    public void setIdCategoria(Categoria idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setProdutoList(List<Produto> produtoList) {
+        this.produtoList = produtoList;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (subcategoriaPK != null ? subcategoriaPK.hashCode() : 0);
         return hash;
     }
 
@@ -97,7 +114,7 @@ public class Subcategoria implements Serializable {
             return false;
         }
         Subcategoria other = (Subcategoria) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.subcategoriaPK == null && other.subcategoriaPK != null) || (this.subcategoriaPK != null && !this.subcategoriaPK.equals(other.subcategoriaPK))) {
             return false;
         }
         return true;
@@ -105,7 +122,7 @@ public class Subcategoria implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Subcategoria[ id=" + id + " ]";
+        return "Entidades.Subcategoria[ subcategoriaPK=" + subcategoriaPK + " ]";
     }
     
 }

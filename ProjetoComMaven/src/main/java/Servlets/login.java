@@ -5,13 +5,17 @@
  */
 package Servlets;
 
+import DAOs.DAOClientes;
+import Entidades.Clientes;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -19,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
+
+    DAOClientes daoClientes = new DAOClientes();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,19 +37,37 @@ public class login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet login</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
+        String caracValidos = "abcdefghijklmnopqrstuvwxyz_1234567890";
+
+        RequestDispatcher rq = request.getRequestDispatcher("/jsp/login.jsp");
+        
+        for (char a : login.toCharArray()) {
+            if (caracValidos.indexOf(a) == -1) {
+                response.sendRedirect("jsp/login.jsp");
+            }
         }
+        
+        Clientes cliente = null;
+        try{
+            cliente = daoClientes.getByLogin(login);
+        }catch (Exception e){}
+        
+        if (cliente != null) {
+            if (cliente.getSenha().equals(senha)) {
+                HttpSession sessao = request.getSession();
+                sessao.setAttribute("SESSIONID", login);
+                if (cliente.getAdmin() == 2) {
+                    rq = request.getRequestDispatcher("jsp/adminPage.jsp");
+                } else {
+                    rq = request.getRequestDispatcher("jsp/userPage.jsp");
+                }
+                rq.forward(request, response);
+            }
+        }
+        response.sendRedirect("jsp/login.jsp");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="header" class="container">
-            <%@include file="../cabecalho.jsp" %>
+            <%@include file="cabecalho.jsp" %>
                
         </div>
 </html>

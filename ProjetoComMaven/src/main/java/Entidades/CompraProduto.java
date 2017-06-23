@@ -16,7 +16,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -43,9 +42,8 @@ public class CompraProduto implements Serializable {
     private int quantidade;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "valor_unitario")
-    private String valorUnitario;
+    private double valorUnitario;
     @JoinColumn(name = "id_compra", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Compra compra;
@@ -60,7 +58,7 @@ public class CompraProduto implements Serializable {
         this.compraProdutoPK = compraProdutoPK;
     }
 
-    public CompraProduto(CompraProdutoPK compraProdutoPK, int quantidade, String valorUnitario) {
+    public CompraProduto(CompraProdutoPK compraProdutoPK, int quantidade, double valorUnitario) {
         this.compraProdutoPK = compraProdutoPK;
         this.quantidade = quantidade;
         this.valorUnitario = valorUnitario;
@@ -86,11 +84,11 @@ public class CompraProduto implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public String getValorUnitario() {
+    public double getValorUnitario() {
         return valorUnitario;
     }
 
-    public void setValorUnitario(String valorUnitario) {
+    public void setValorUnitario(double valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 

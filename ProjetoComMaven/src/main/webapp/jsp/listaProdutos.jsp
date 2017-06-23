@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="importsToJSP.jsp" %>
+        <%@include file="imports.jsp" %>
         <title>Produtos</title>
     </head>
     <body>

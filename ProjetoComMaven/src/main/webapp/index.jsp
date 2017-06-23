@@ -17,31 +17,21 @@
             <div class="col-md-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Inserir</h3>
+                        <h3 class="panel-title">Categorias</h3>
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
-                            <li role="presentation"><a href="jsp/insereCategoria.jsp">Insere Categorias</a></li>
-                            <li role="presentation"><a href="jsp/insereCliente.jsp">Insere Cliente</a></li>
-                            <li role="presentation"><a href="jsp/insereProduto.jsp">Insere Produtos</a></li>
-                        </ul>
+                            <li role="presentation"><a href="#">Categoria 1</a></li>
+                            <li role="presentation"><a href="#">Categoria 2</a></li>
+                            <li role="presentation"><a href="#">Categoria 3</a></li>
+                            <li role="presentation"><a href="#">Categoria 4</a></li>
+                            <li role="presentation"><a href="#">Categoria 5</a></li>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Exibir</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li role="presentation"><a href="exibeCategoria">Exibe Categorias</a></li>
-                                <li role="presentation"><a href="exibeCliente">Exibe Cliente</a></li>
-                                <li role="presentation"><a href="exibeProduto">Exibe Produto</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
                 </div>
             </div>
+            <div class="col-md-8">
+            </div>
         </div>
+        <%@include file="jsp/rodape.jsp" %>
     </body>
 </html>

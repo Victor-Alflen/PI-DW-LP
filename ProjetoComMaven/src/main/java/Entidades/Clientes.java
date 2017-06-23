@@ -6,17 +6,22 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,19 +37,27 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Clientes.findAll", query = "SELECT c FROM Clientes c")
     , @NamedQuery(name = "Clientes.findById", query = "SELECT c FROM Clientes c WHERE c.id = :id")
+    , @NamedQuery(name = "Clientes.findByCpf", query = "SELECT c FROM Clientes c WHERE c.cpf = :cpf")
     , @NamedQuery(name = "Clientes.findByNome", query = "SELECT c FROM Clientes c WHERE c.nome = :nome")
     , @NamedQuery(name = "Clientes.findByLogin", query = "SELECT c FROM Clientes c WHERE c.login = :login")
     , @NamedQuery(name = "Clientes.findBySenha", query = "SELECT c FROM Clientes c WHERE c.senha = :senha")
     , @NamedQuery(name = "Clientes.findByEmail", query = "SELECT c FROM Clientes c WHERE c.email = :email")
-    , @NamedQuery(name = "Clientes.findByAtivo", query = "SELECT c FROM Clientes c WHERE c.ativo = :ativo")})
+    , @NamedQuery(name = "Clientes.findByAtivo", query = "SELECT c FROM Clientes c WHERE c.ativo = :ativo")
+    , @NamedQuery(name = "Clientes.findByAdmin", query = "SELECT c FROM Clientes c WHERE c.admin = :admin")
+    , @NamedQuery(name = "Clientes.findByDataNascimento", query = "SELECT c FROM Clientes c WHERE c.dataNascimento = :dataNascimento")})
 public class Clientes implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 11)
+    @Column(name = "CPF")
+    private String cpf;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -70,6 +83,15 @@ public class Clientes implements Serializable {
     @NotNull
     @Column(name = "ativo")
     private boolean ativo;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "admin")
+    private int admin;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "data_nascimento")
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idClientes")
     private List<Compra> compraList;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "clientes")
@@ -82,13 +104,16 @@ public class Clientes implements Serializable {
         this.id = id;
     }
 
-    public Clientes(Integer id, String nome, String login, String senha, String email, boolean ativo) {
+    public Clientes(Integer id, String cpf, String nome, String login, String senha, String email, boolean ativo, int admin, Date dataNascimento) {
         this.id = id;
+        this.cpf = cpf;
         this.nome = nome;
         this.login = login;
         this.senha = senha;
         this.email = email;
         this.ativo = ativo;
+        this.admin = admin;
+        this.dataNascimento = dataNascimento;
     }
 
     public Integer getId() {
@@ -97,6 +122,14 @@ public class Clientes implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {
@@ -137,6 +170,22 @@ public class Clientes implements Serializable {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     @XmlTransient
