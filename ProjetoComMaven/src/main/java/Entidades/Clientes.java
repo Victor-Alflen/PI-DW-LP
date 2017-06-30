@@ -47,6 +47,11 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Clientes.findByDataNascimento", query = "SELECT c FROM Clientes c WHERE c.dataNascimento = :dataNascimento")})
 public class Clientes implements Serializable {
 
+    @Column(name = "admin")
+    private Integer admin;
+    @Column(name = "ativo")
+    private Boolean ativo;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,14 +84,6 @@ public class Clientes implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "email")
     private String email;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ativo")
-    private boolean ativo;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "admin")
-    private int admin;
     @Basic(optional = false)
     @NotNull
     @Column(name = "data_nascimento")
@@ -164,21 +161,6 @@ public class Clientes implements Serializable {
         this.email = email;
     }
 
-    public boolean getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
-
-    public int getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(int admin) {
-        this.admin = admin;
-    }
 
     public Date getDataNascimento() {
         return dataNascimento;
@@ -228,6 +210,22 @@ public class Clientes implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Clientes[ id=" + id + " ]";
+    }
+
+    public Integer getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Integer admin) {
+        this.admin = admin;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
     
 }

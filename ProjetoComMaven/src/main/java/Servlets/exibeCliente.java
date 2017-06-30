@@ -15,16 +15,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Victor
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
-public class login extends HttpServlet {
-
-    DAOClientes daoClientes = new DAOClientes();
+@WebServlet(name = "exibeCliente", urlPatterns = {"/exibeCliente"})
+public class exibeCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,43 +34,13 @@ public class login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
-        String caracValidos = "abcdefghijklmnopqrstuvwxyz_1234567890";
+        DAOClientes daoClientes = new DAOClientes();
+        List<Clientes> lista = daoClientes.listInOrderId();
         
-        for (char a : login.toCharArray()) {
-            if (caracValidos.indexOf(a) == -1) {
-                response.sendRedirect("jsp/login.jsp");
-                return;
-            }
-        }
+        request.setAttribute("listaClientes", lista);
         
-        RequestDispatcher rq = request.getRequestDispatcher("/jsp/login.jsp");
-        
-        Clientes cliente = null;
-        try{
-            cliente = daoClientes.getByLogin(login);
-        }catch (Exception e){
-            System.out.println("ERRO");
-        }
-        
-        if (cliente != null){ //!list.isEmpty()) {
-        //    Clientes cliente = list.get(0);
-            if (cliente.getSenha().equals(senha)) {
-                HttpSession sessao = request.getSession();
-                sessao.setAttribute("SESSIONID", login);
-                if (cliente.getAdmin() == 2) {
-                    request.setAttribute("teste", "");
-                    rq = request.getRequestDispatcher("jsp/adminPage.jsp");
-                } else {
-                    rq = request.getRequestDispatcher("jsp/userPage.jsp");
-                }
-                rq.forward(request, response);
-            }
-        }else{
-            System.out.println("FALHOU Login");
-            response.sendRedirect("jsp/login.jsp");
-        }
+        RequestDispatcher rd = request.getRequestDispatcher("jsp/exibeCategoria.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -23,7 +23,11 @@
                         <ul class="nav nav-pills nav-stacked">
                             <li role="presentation"><a href="jsp/cadastraCategoria.jsp">Insere Categorias</a></li>
                             <li role="presentation"><a href="jsp/cadastraCliente.jsp">Insere Cliente</a></li>
+                            <li role="presentation"><a href="jsp/cadastraCompra.jsp">Insere Compra</a></li>
+                            <li role="presentation"><a href="jsp/cadastraEndereco.jsp">Insere Endereço</a></li>
                             <li role="presentation"><a href="jsp/cadastraProduto.jsp">Insere Produtos</a></li>
+                            <li role="presentation"><a href="jsp/cadastraSubcategoria.jsp">Insere Subcategoria</a></li>
+                            <li role="presentation"><a href="jsp/cadastraTipo.jsp">Insere Tipo</a></li>
                         </ul>
                     </div>
                     <div class="panel panel-default">

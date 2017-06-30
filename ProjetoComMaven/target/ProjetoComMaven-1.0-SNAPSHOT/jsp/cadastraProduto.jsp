@@ -14,9 +14,9 @@
     <body>
         <%@include file="cabecalho.jsp" %>
         <div class="row">
-            <div class="col-lg-2"></div>
+            <%@include file="barraLateral.jsp" %>
             <div class="col-lg-8">
-                <h3>Cadastro de Cliente</h3>
+                <h3>Cadastro de Produto</h3>
                 <form action="../cadastraCliente" method="post">
                     <div class="form-group col-md-8">
                         <label for="nome">Nome</label>

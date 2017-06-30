@@ -29,13 +29,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Endereco.findAll", query = "SELECT e FROM Endereco e")
     , @NamedQuery(name = "Endereco.findById", query = "SELECT e FROM Endereco e WHERE e.id = :id")
-    , @NamedQuery(name = "Endereco.findByPais", query = "SELECT e FROM Endereco e WHERE e.pais = :pais")
-    , @NamedQuery(name = "Endereco.findByEstado", query = "SELECT e FROM Endereco e WHERE e.estado = :estado")
     , @NamedQuery(name = "Endereco.findByCidade", query = "SELECT e FROM Endereco e WHERE e.cidade = :cidade")
-    , @NamedQuery(name = "Endereco.findByRua", query = "SELECT e FROM Endereco e WHERE e.rua = :rua")
-    , @NamedQuery(name = "Endereco.findByNumero", query = "SELECT e FROM Endereco e WHERE e.numero = :numero")
     , @NamedQuery(name = "Endereco.findByComplemento", query = "SELECT e FROM Endereco e WHERE e.complemento = :complemento")
-    , @NamedQuery(name = "Endereco.findByInformacaoAuxiliar", query = "SELECT e FROM Endereco e WHERE e.informacaoAuxiliar = :informacaoAuxiliar")})
+    , @NamedQuery(name = "Endereco.findByEstado", query = "SELECT e FROM Endereco e WHERE e.estado = :estado")
+    , @NamedQuery(name = "Endereco.findByInformacaoAuxiliar", query = "SELECT e FROM Endereco e WHERE e.informacaoAuxiliar = :informacaoAuxiliar")
+    , @NamedQuery(name = "Endereco.findByNumero", query = "SELECT e FROM Endereco e WHERE e.numero = :numero")
+    , @NamedQuery(name = "Endereco.findByRua", query = "SELECT e FROM Endereco e WHERE e.rua = :rua")})
 public class Endereco implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,36 +43,23 @@ public class Endereco implements Serializable {
     @NotNull
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "pais")
-    private String pais;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "estado")
-    private String estado;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @Size(max = 255)
     @Column(name = "cidade")
     private String cidade;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "rua")
-    private String rua;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "numero")
-    private int numero;
-    @Size(max = 45)
+    @Size(max = 255)
     @Column(name = "complemento")
     private String complemento;
-    @Size(max = 45)
+    @Size(max = 255)
+    @Column(name = "estado")
+    private String estado;
+    @Size(max = 255)
     @Column(name = "informacao_auxiliar")
     private String informacaoAuxiliar;
+    @Column(name = "numero")
+    private Integer numero;
+    @Size(max = 255)
+    @Column(name = "rua")
+    private String rua;
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Clientes clientes;
@@ -85,37 +71,12 @@ public class Endereco implements Serializable {
         this.id = id;
     }
 
-    public Endereco(Integer id, String pais, String estado, String cidade, String rua, int numero) {
-        this.id = id;
-        this.pais = pais;
-        this.estado = estado;
-        this.cidade = cidade;
-        this.rua = rua;
-        this.numero = numero;
-    }
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     public String getCidade() {
@@ -126,22 +87,6 @@ public class Endereco implements Serializable {
         this.cidade = cidade;
     }
 
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
     public String getComplemento() {
         return complemento;
     }
@@ -150,12 +95,36 @@ public class Endereco implements Serializable {
         this.complemento = complemento;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public String getInformacaoAuxiliar() {
         return informacaoAuxiliar;
     }
 
     public void setInformacaoAuxiliar(String informacaoAuxiliar) {
         this.informacaoAuxiliar = informacaoAuxiliar;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     public Clientes getClientes() {

@@ -14,7 +14,7 @@
     <body>
         <%@include file="cabecalho.jsp" %>
         <div class="row">
-            <div class="col-lg-2"></div>
+            <%@include file="barraLateral.jsp" %>
             <div class="col-lg-8">
                 <h3>Cadastro de Categoria</h3>            
                 <form action="../cadastraCategoria" method="post">

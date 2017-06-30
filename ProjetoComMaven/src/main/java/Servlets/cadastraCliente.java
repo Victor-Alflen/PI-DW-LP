@@ -27,9 +27,9 @@ public class cadastraCliente extends HttpServlet {
     private Clientes cliente = new Clientes();
     private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-    private int NUMEROS = 2;
+    private int NUMEROS = 1;
     private int LETRAS = 2;
-    private int NUMEROS_E_LETRAS = 2;
+    private int NUMEROS_E_LETRAS = 3;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,6 +41,7 @@ public class cadastraCliente extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected boolean verifica(String campo, String adicional, int tipo) {
+        campo = campo.toLowerCase();
         String numeros = "1234567890";
         String letras = "abcdefghijklmnopqrstuvwxyz";
 
@@ -62,6 +63,7 @@ public class cadastraCliente extends HttpServlet {
 
         for (char a : campo.toCharArray()) {
             if (caracValidos.indexOf(a) == -1) {
+                System.out.println("" + a + caracValidos.indexOf(a) );
                 return false;
             }
         }
@@ -72,20 +74,24 @@ public class cadastraCliente extends HttpServlet {
             throws ServletException, IOException {
         cliente.setId(daoClientes.autoIdClientes());
         String nome = request.getParameter("nome");
-        String cpf = request.getParameter("cpf");
+        String cpf = request.getParameter("CPF");
+        cpf = cpf.replace(".", "");
+        cpf = cpf.replace("-", "");
         String email = request.getParameter("email");
         String login = request.getParameter("login");
         
         RequestDispatcher rd = request.getRequestDispatcher("jsp/registroInserido.jsp");
 
-        if (verifica(nome, "", LETRAS) && verifica(cpf, "", NUMEROS) && verifica(email, "@_-", NUMEROS_E_LETRAS)
+        if (verifica(nome, " ", LETRAS) && verifica(cpf, "", NUMEROS) && verifica(email, "@_-.", NUMEROS_E_LETRAS)
                 && verifica(login, "", NUMEROS_E_LETRAS))  {
             cliente.setNome(nome);
             cliente.setCpf(cpf);
             cliente.setEmail(email);
+            
+            System.out.println("OK!");
 
             try {
-                cliente.setDataNascimento(sdf.parse(request.getParameter("dataNascimento")));
+                cliente.setDataNascimento(sdf.parse(request.getParameter("dataNasc")));
             } catch (Exception e) {
             }
 
@@ -98,8 +104,12 @@ public class cadastraCliente extends HttpServlet {
             cliente.setAtivo(true);
             
             daoClientes.inserir(cliente);
-        } else {
             
+            rd.forward(request, response);
+        } else {
+            System.out.println("Falhou!");
+            rd = request.getRequestDispatcher("jsp/registroNaoInserido.jsp");
+            rd.forward(request, response);
         }
 
     }
