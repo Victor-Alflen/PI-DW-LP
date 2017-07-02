@@ -1,0 +1,4 @@
+*.class
+*.war
+.netbeans_automatic_build
+persistence.xml
